@@ -1,8 +1,3 @@
-/**
- * service definition file
- * express 3.0.x doesn't support layout?
- */
-
 logger.setLevel('DEBUG');
 
 ACS.init('OAUTH', 'OAUTH SECRET'); // Please fill me.
