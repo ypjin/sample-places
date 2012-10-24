@@ -1,0 +1,34 @@
+{
+  "name": "sample-places",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": 
+  [
+  ],
+  "author": "",
+  "maintainers": 
+  [
+  ],
+  "contributors":
+  [
+  ],
+  "repository": 
+  {
+    "type": "git",
+    "url": ""
+  },
+  "preferGlobal": false,
+  "dependencies": 
+  {
+  },
+  "license":"",
+  "private": true,
+  "main": "./sample-places.js",
+  "service":
+  {
+    "appid": "",
+    "-consumerKey": "",
+    "-consumerSecret": ""
+  },
+  "logfile" : "sample-places.log"
+}

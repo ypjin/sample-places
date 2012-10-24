@@ -1,0 +1,44 @@
+/*
+	blue:#6993c2;
+*/
+*{font:14px/20px 'helvetcia neue',helvetica,arial,sans-serif;word-break:break-all;}
+.fr{float:right;}
+.fl{float:left;}
+.clr{clear:both;}
+ul{list-style:none;padding:0;margin:0;}
+li{padding:0;margin:0;}
+a{text-decoration:none;color:#6993c2;}
+.btn{display:block;color:#333;background:#ccc;border:1px solid #999;padding:3px;margin:2px;text-transform:uppercase;font-weight:500;cursor:pointer;}
+.btn:hover{background:#6993c2;color:#fff;}
+body{margin:0;padding:0;}
+form{margin:0;padding:0;}
+#ctr{float:left;height:100%;width:200px;}
+#ctnr{float:left;position:relative;margin:0;padding:0;width:70%;border-left:2px solid #ccc;min-height:100%}
+#login,.form-ctnr{width:300px;padding:30px;border:1px solid #333;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#e5e5e5;margin:10px;}
+#login span,.form-ctnr span{padding:3px;outline:none;}
+#login input,.form-ctnr input{padding:3px;outline:none;border:1px solid #aaa;}
+#login input:focus,.form-ctnr input:focus{border:1px solid #6993c2;}
+#login label,.form-ctnr label{display:inline-block;width:100px;}
+#login input[type="submit"],.form-ctnr input[type="submit"]{border:1px solid #333;background:#333;color:#fff;margin:2px;padding:3px;}
+
+.cncl{display:block;border:1px solid #333;background:#333;color:#fff;margin:2px;cursor:pointer;padding:3px;}
+
+#user{position:fixed;padding:5px;width:190px;}
+
+#list{padding:0;width:100%;}
+#list ul li{padding:3px;border:1px solid #ccc;border-left:0;border-top:0;line-height:26px;}
+#list ul li span{display:block;float:left;}
+#list ul li span.p-id{width:25%;}
+#list ul li span.name{width:15%;}
+#list ul li span.address{width:25%;}
+#list ul li span.city{width:15%;}
+#list ul li span.more{width:20%;}
+#list ul li:first-child{border-top:1px solid #ccc;}
+
+/* flash */
+#flash{position:absolute;top:3px;right:50%;margin:0 -130px 0 0;width:250px;background:#333;color:#fff;text-align:center;padding:5px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;opacity:0.9;}
+
+/* show place */
+.s-ctnr{width:500px;padding:30px;border:1px solid #333;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#e5e5e5;margin:10px;}
+.place .name,.place .val{display:block;}
+.place .name{width:150px;}.place .val{width:300px;}

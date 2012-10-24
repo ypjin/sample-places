@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>ACS Places</title>
+	<link rel="stylesheet" href="<%= version %>/style.css" type="text/css">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">google.load("jquery", "1.7.1");</script>
+	<script type="text/javascript">
+		$(function(){
+			if($("#flash").length > 0){
+				setTimeout(function(){$("#flash").fadeOut()},1500);
+			}
+			$(window).resize(function(){
+				$("#ctnr").css('width', parseInt($('body').width()) - 202);
+			});
+			$("#ctnr").css('width', parseInt($('body').width()) - 202);
+		});
+	</script>
+</head>
+<body>
+	<div id="ctr">
+		<div id="user">
+			<a href="<%= version %>/show" class="btn">Skip</a>
+		</div>
+	</div>
+	<div id="ctnr">
+		<% if(req.query && req.query.msg){ %>
+      <div id="flash"><%= req.query.msg %></div>
+    <% } %>
+		<div id="login">
+			<form name="login" action="login" method="post">
+				<div><label>Username:</label><input type="text" name="un"></div>
+				<div><label>Password:</label><input type="password" name="pw"></div>
+				<div><input type="submit" value="Submit" class="fr"><div class="clr"></div></div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

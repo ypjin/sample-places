@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>ACS Places</title>
+	<link rel="stylesheet" href="<%= version %>/style.css" type="text/css">
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">google.load("jquery", "1.7.1");</script>
+	<script type="text/javascript">
+		$(function(){
+			if($("#flash").length > 0){
+				setTimeout(function(){$("#flash").fadeOut()},1500);
+			}
+			$(window).resize(function(){
+				$("#ctnr").css('width', parseInt($('body').width()) - 202);
+			});
+			$("#ctnr").css('width', parseInt($('body').width()) - 202);
+		});
+	</script>
+</head>
+<body>
+	<div id="ctr">
+		<% if(user.session !== "") { %>
+			<div id="user">User: <%= user.name %><br><!-- Session: <%= user.session %><br> --><%= (user.email) ? 'Email: '+user.email : 'Username: '+user.username %><a href="<%= version %>/logout" class="btn">Logout</a><a href="<%= version %>/new" class="btn">Create a Place</a></div>
+		<% }else{ %>
+			<div id="user"><a href="<%= version %>/index" class="btn">login</a><a href="<%= version %>/new" class="btn">Create a Place</a></div>
+		<% } %>
+	</div>
+	<div id="ctnr">
+		<% if(req.query && req.query.msg){ %>
+			<div id="flash"><%= req.query.msg %></div>
+		<% } %>
+		<% if(typeof list !== "undefined") { %>	
+			<div id="list">
+				<ul>
+					<li class="h"><span class="p-id">ID</span><span class="name">Name</span><span class="address">Address</span><span class="city">City</span><span class="more">More</span><div class="clr"></div></li>
+					<% var p = list["places"] %>
+					<% for(var i=0;i<p.length;i++){ %>
+						<li><span class="p-id"><%= p[i].id %></span><span class="name"><%= p[i].name %></span><span class="address"><%= p[i].address %></span><span class="city"><%= p[i].city %></span><span class="more"><a href="<%= version %>/place/<%= p[i].id %>" class='btn fl'>Show</a><a href="<%= version %>/edit/<%= p[i].id %>" class='btn fl'>Edit</a><a href="<%= version %>/delete/<%= p[i].id %>" class='btn fl'>Delete</a></span><div class="clr"></div></li>
+					<% } %>
+				</ul>
+			</div>
+		<% } %>
+	</div>
+	<div class="clr"></div>
+</body>
+</html>

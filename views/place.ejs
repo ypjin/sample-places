@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>ACS Places</title>
+  <link rel="stylesheet" href="<%= version %>/style.css" type="text/css">
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">google.load("jquery", "1.7.1");</script>
+  <script type="text/javascript">
+    $(function(){
+      if($("#flash").length > 0){
+        setTimeout(function(){$("#flash").fadeOut()},1500);
+      }
+      $(window).resize(function(){
+        $("#ctnr").css('width', parseInt($('body').width()) - 202);
+      });
+      $("#ctnr").css('width', parseInt($('body').width()) - 202);
+    });
+  </script>
+</head>
+<body>
+  <% var p = place["places"][0] %>
+  <div id="ctr">
+    <% if(user.session !== "") { %>
+      <div id="user">User: <%= user.name %><br><!-- Session: <%= user.session %><br> --><%= (user.email) ? 'Email: '+user.email : 'Username: '+user.username %><a href="<%= version %>/logout" class="btn">Logout</a><a href="<%= version %>/show" class="btn">Back</a><a href="<%= version %>/edit/<%= p.id %>" class="btn">Edit</a><a href="<%= version %>/delete/<%= p.id %>" class='btn'>Delete</a><a href="<%= version %>/new" class="btn">Create</a></div>
+    <% }else{ %>
+      <div id="user"><a href="<%= version %>/index" class="btn">login</a><a href="<%= version %>/show" class="btn">Back</a><a href="<%= version %>/edit/<%= p.id %>" class="btn">Edit</a><a href="<%= version %>/delete/<%= p.id %>" class='btn'>Delete</a><a href="<%= version %>/new" class="btn">Create</a></div>
+    <% } %>
+  </div>
+  <div id="ctnr">
+    <% if(req.query && req.query.msg){ %>
+      <div id="flash"><%= req.query.msg %></div>
+    <% } %>
+    <div class="s-ctnr">
+      <% for(var info in p){ %>
+        <% if(typeof p[info] !== "object"){ %>
+        <div class="place"><span class="name fl"><%= info %></span><span class="val fl"><%= p[info] %></span></div>
+        <% }else{ %>
+        <div class="place"><span class="name fl"><%= info %></span><span class="val fl"><%= JSON.stringify(p[info]) %></span></div>
+        <% } %>
+        <div class="clr"></div>
+      <% } %>
+    </div>  
+  </div>
+</body>
+</html>
